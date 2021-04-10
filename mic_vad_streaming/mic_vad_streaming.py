@@ -67,7 +67,7 @@ class Audio(object):
             input_rate (int): Input audio rate to resample from
         """
         data16 = np.fromstring(string=data, dtype=np.int16)
-        resample_size = int(len(data16) / self.input_rate * self.RATE_PROCESS)
+        resample_size = int(len(data16) / input_rate * self.RATE_PROCESS)
         resample = signal.resample(data16, resample_size)
         resample16 = np.array(resample, dtype=np.int16)
         return resample16.tostring()
